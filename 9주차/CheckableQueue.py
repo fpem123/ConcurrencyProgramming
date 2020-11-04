@@ -1,7 +1,7 @@
 '''
  - 20년 가을학기 분산병렬 프로그래밍
- - 5장 스레드 간의 통신
- - thread-safe 자료구조를 이용한 Web Crawler
+ - 7장 실행자와 Pool
+ - Web Crawler 성능 올리기
  - REFERENCE: https://github.com/elliotforbes/python-crawler
  - 이호섭
 '''
