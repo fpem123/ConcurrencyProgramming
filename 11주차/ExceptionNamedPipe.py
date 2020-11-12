@@ -1,16 +1,14 @@
 '''
  - 20년 가을학기 분산병렬 프로그래밍
  - 8장 멀티프로세싱
- - multiprocessing.pipe() 사용하기
+ - multiprocessing.pipe()로 자식 프로세스의 예외 처리하기
  - 이호섭
- - 프로세스간 통신을 위해 이름있는 파이프 생성
-   이름있는 파이프도 FIFO 구조이다.
-   단방향 통신이며 쌍방향(duplex)을 위해선 2개의 파이프를 만들어야함
-   프로세스가 종료되면 제거됨
- - 익명 파이프와는 다르게 윈도우에서 실행 가능
+ - IPC인 named pipe 로
+   자식에서 발생한 예외를 부모 프로세스로 전달
 '''
 
 import multiprocessing
+import sys
 
 
 ##
@@ -25,10 +23,14 @@ class ChildProcess(multiprocessing.Process):
         self.conn = conn
 
     def run(self):
-        print("Attempting to pipein to pipe")
-        self.conn.send("My name is Hoseop")
-        # 파이프 close
-        self.conn.close()
+        try:
+            raise Exception("This broke stuff")
+        except:
+            except_type, except_class, tb = sys.exc_info()
+
+            # 네임드 파이프에 traceback 정보를 작성
+            self.conn.send(str(tb))
+            self.conn.close()
 
 
 def main():
@@ -39,7 +41,7 @@ def main():
     child.join()
 
     pipContent = conn1.recv()
-    print("Pipe: {}".format(pipContent))
+    print("Exception: {}".format(pipContent))
 
     conn1.close()
 

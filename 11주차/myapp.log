@@ -1,0 +1,10 @@
+SpawnPoolWorker-1 2020-11-12 21:48:48,487 INFO 2 being processed
+SpawnPoolWorker-1 2020-11-12 21:48:48,492 INFO Final Result: 4
+SpawnPoolWorker-2 2020-11-12 21:48:48,498 INFO 3 being processed
+SpawnPoolWorker-2 2020-11-12 21:48:48,498 INFO Final Result: 6
+SpawnPoolWorker-3 2020-11-12 21:48:48,508 INFO 4 being processed
+SpawnPoolWorker-4 2020-11-12 21:48:48,508 INFO 5 being processed
+SpawnPoolWorker-3 2020-11-12 21:48:48,508 INFO Final Result: 8
+SpawnPoolWorker-4 2020-11-12 21:48:48,508 INFO Final Result: 10
+SpawnPoolWorker-1 2020-11-12 21:48:50,503 INFO 6 being processed
+SpawnPoolWorker-1 2020-11-12 21:48:50,503 INFO Final Result: 12
